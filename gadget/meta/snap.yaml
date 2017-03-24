@@ -1,0 +1,7 @@
+name: nutsboard-gadget
+version: 16.04-1
+summary: NutsBoard platforms support package
+description: Support files for booting NutsBoard Almond platforms
+type: gadget
+architectures:
+    - armhf

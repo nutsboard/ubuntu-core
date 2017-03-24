@@ -1,0 +1,23 @@
+name: nutsboard-kernel
+version: 4.4.32
+summary: NutsBoard kernel for Almond
+description: Linux kernel for NutsBoard AM335x based platforms
+type: kernel
+architectures: [ armhf ]
+confinement: strict
+grade: stable
+
+parts:
+    kernel:
+        plugin: kernel
+        source: linux-am335x
+        kdefconfig: [nutsboard_defconfig]
+        kconfigs:
+            - CONFIG_LOCALVERSION="-nutsboard-snappy"
+            - CONFIG_DEBUG_INFO=n
+            - CONFIG_SQUASHFS=m
+        kernel-image-target: zImage
+        kernel-device-trees:
+            - am335x-nutsboard-almond
+        build-packages: [bc, kmod, cpio]
+

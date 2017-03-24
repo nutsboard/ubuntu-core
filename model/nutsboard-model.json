@@ -1,0 +1,11 @@
+{
+  "type": "model",
+  "authority-id": "8DofANxdhvtH8XY9QkZIQj1dMqTT7Awy",
+  "brand-id": "8DofANxdhvtH8XY9QkZIQj1dMqTT7Awy",
+  "series": "16",
+  "model": "nutsboard",
+  "architecture": "armhf",
+  "gadget": "nutsboard-gadget",
+  "kernel": "nutsboard-kernel",
+  "timestamp": "2017-03-24T03:30:29+00:00"
+}
