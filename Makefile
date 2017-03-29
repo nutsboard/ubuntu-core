@@ -1,4 +1,4 @@
-BUILD_STEPS := u-boot gadget kernelsnap snappy
+BUILD_STEPS := u-boot kernelsnap gadget snappy
 
 all: build
 

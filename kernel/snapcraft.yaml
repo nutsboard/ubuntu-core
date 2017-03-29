@@ -15,9 +15,12 @@ parts:
         kconfigs:
             - CONFIG_LOCALVERSION="-nutsboard-snappy"
             - CONFIG_DEBUG_INFO=n
-            - CONFIG_SQUASHFS=m
+            - CONFIG_SQUASHFS=y
         kernel-image-target: zImage
         kernel-device-trees:
             - am335x-nutsboard-almond
         build-packages: [bc, kmod, cpio]
-
+    firmware:
+        plugin: tar-content
+        source: firmware.tar
+        destination: firmware

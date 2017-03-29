@@ -9,11 +9,9 @@ include common.mk
 
 UBOOT_SPL := $(UBOOT_DIR)/u-boot-am335x/MLO
 UBOOT_BIN := $(UBOOT_DIR)/u-boot-am335x/u-boot.img
-UBOOT_ENV := $(UBOOT_DIR)/u-boot-am335x/board/nutsboard/almond/uEnv.txt
 
-OEM_UBOOT_SPL := gadget/MLO
-OEM_UBOOT_BIN := gadget/u-boot.img
-OEM_UBOOT_ENV := gadget/uEnv.txt
+OEM_UBOOT_SPL := gadget/boot-assets/MLO
+OEM_UBOOT_BIN := gadget/boot-assets/u-boot.img
 
 
 all: build
@@ -21,7 +19,6 @@ all: build
 clean:
 	rm -rf $(OEM_UBOOT_SPL)
 	rm -rf $(OEM_UBOOT_BIN)
-	rm -rf $(OEM_UBOOT_ENV)
 	rm -f $(GADGET_DIR)/uboot.conf
 	rm -f $(GADGET_DIR)/uboot.env
 
@@ -31,7 +28,6 @@ u-boot:
 	@if [ ! -f $(UBOOT_BIN) ] ; then echo "Build u-boot first."; exit 1; fi
 	cp -f $(UBOOT_SPL) $(OEM_UBOOT_SPL)
 	cp -f $(UBOOT_BIN) $(OEM_UBOOT_BIN)
-	cp -f $(UBOOT_ENV) $(OEM_UBOOT_ENV)
 
 
 preload: u-boot

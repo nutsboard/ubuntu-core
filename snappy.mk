@@ -1,6 +1,6 @@
 include common.mk
 
-SNAPPY_IMAGE := ubuntu-core-nutsboard-`date +%Y%m%d`.img
+SNAPPY_IMAGE := ubuntu-core-nutsboard.img
 DEFAULT_IMAGE := nutsboard.img
 UBUNTU_CORE_CH := stable
 UBUNTU_IMAGE=/snap/bin/ubuntu-image
@@ -18,13 +18,14 @@ build-snappy:
 		--image-size 1G \
 		--extra-snaps ./$(GADGET_SNAP) \
 		--extra-snaps ./$(KERNEL_SNAP) \
+		--extra-snaps bluez \
+		--extra-snaps modem-manager \
 		--extra-snaps snapweb \
 		-O $(DEFAULT_IMAGE) \
 		$(IMAGE_MODEL)
 
 pack: build-snappy
-	mv $(DEFAULT_IMAGE) $(SNAPPY_IMAGE)
-	gzip $(SNAPPY_IMAGE)
+	gzip $(DEFAULT_IMAGE)/$(DEFAULT_IMAGE)
 
 build: build-snappy pack
 
