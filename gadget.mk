@@ -17,6 +17,7 @@ OEM_UBOOT_BIN := gadget/boot-assets/u-boot.img
 all: build
 
 clean:
+	rm -f nutsboard-gadget*.snap
 	rm -rf $(OEM_UBOOT_SPL)
 	rm -rf $(OEM_UBOOT_BIN)
 	rm -f $(GADGET_DIR)/uboot.conf
