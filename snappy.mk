@@ -8,7 +8,7 @@ UBUNTU_IMAGE=/snap/bin/ubuntu-image
 all: build
 
 clean:
-	rm -f $(OUTPUT_DIR)/*.img.xz
+	rm -rf $(DEFAULT_IMAGE)
 distclean: clean
 
 build-snappy:
