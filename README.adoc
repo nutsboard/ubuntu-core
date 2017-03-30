@@ -1,0 +1,58 @@
+= NutsBoard Snappy Ubuntu Core
+
+Environment Setup
+
+NOTE: it's highly recommended to build from Ubuntu 16.04 or later.
+
+[source,console]
+% sudo apt update
+% sudo apt-get install -y build-essential u-boot-tools lzop debootstrap gcc-4.8-arm-linux-gnueabihf device-tree-compiler
+% sudo apt-get install -y ubuntu-snappy snapcraft
+% sudo apt-get install -y snap
+% sudo snap install ubuntu-image --devmode --edge
+
+
+You can check that the snap is working on your host machine by listing the available packages:
+[source,console]
+% snap list
+Name          Version     Rev   Developer  Notes
+core          16-2        1337  canonical  -
+ubuntu-image  0.15+snap3  48    canonical  devmode
+
+
+Download the BSP source:
+
+[source,console]
+% https://github.com/nutsboard/ubuntu-core.git
+% cd ubuntu-core
+
+For full build:
+[source,console]
+% make
+
+For a u-boot build:
+[source,console]
+% make u-boot
+
+For a kernelsnap build:
+[source,console]
+% make kernelsnap
+
+For a gadget build:
+[source,console]
+% make gadget
+
+For a snappy build:
+[source,console]
+% make snappy
+
+To clean build area
+[source,console]
+% make clean
+
+To generate a SD card image:
+[source,console]
+% sudo dd if=nutsboard.img/nutsboard.img of=/dev/sdx bs=1M <sdx is depend on your SD card device node, ex: sde>
+
+
+About first boot configuration, please refer NutsBoard Blog.
